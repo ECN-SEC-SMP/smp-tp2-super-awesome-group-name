@@ -1,20 +1,82 @@
+#include "utilitaires.h"
 #include <iostream>
-#include "/Users/coucoujm/Downloads/tp2-code-20251015/entierlong.h"
+using namespace std;
+
+
 
  t_EntierLong inttolong (int chiffre){
     struct t_EntierLong Long; // definition d'une structure Long
-    int div
+    int unit=0;
     if (chiffre<0){             //controle du signe de notre chiffre d'entré
         Long.negatif=true; // mise à 1 de la variable negatif, qui corre'spond au signe de notre entier long
+        chiffre*=-1;
     }
-    while (div != 0 )
-    Long.chiffres[0]=chiffre; // mise de la valeur de chiffre dans notre structure Long
+    else{        
+        Long.negatif=false; // mise à 1 de la variable negatif, qui corre'spond au signe de notre entier long
+    }
+
+
+    for (int i = 0; i<20;i++ ){ // tant que l'on divise par une puissance de 10 et que l'on a un resultat supperieur a 0 on continue
+        unit = (chiffre%10);
+        Long.chiffres[i] = unit; // ici on inverse les chiffres de chiffre et on les ajoutent dans le tableau de Long.chiffres  chiffre %(int)10^(i)
+        chiffre=chiffre/10;
+        //Long.chiffres[i] =0;
+
+    }
+
     return (Long); // on retourne notre structure   
 }
 
  bool Egalite (t_EntierLong a, t_EntierLong b){
-    bool egal
-    if (a.chiffres == b.chiffres){
-        if 
-    }
+    bool egal;
+    int nbr=0;
+
+        if (a.negatif == b.negatif){// control du meme signe, pour l'égalité
+            //control de la meme valeur de la partie chiffre des chiffres d'entrée
+            for (int i=0;i<20;i++)
+            {
+                if (a.chiffres[i]==b.chiffres[i])// comparaison pour controller que chaque chiffre du tableau de numéros de a ou de b correspondent
+                {
+                    nbr=nbr+1;//controle du nombre de chiffres coorect
+                }
+            }
+            if (nbr ==20) // si tous les chiffres sont similaires, on met la sortie a 1
+            {
+                egal =true;
+            }
+            else 
+            {
+                egal=false;
+            }
+        }
+        else{
+            egal = false;// si pas le meme signe, on retourne faux
+        }
+    return egal; // retour du test de légalité
  }
+
+ bool EgaliteAbs (t_EntierLong a, t_EntierLong b){
+    bool egalAbs;
+    int nbr=0;
+    for (int i=0;i<20;i++)
+    {
+        if (a.chiffres[i]==b.chiffres[i])// comparaison pour controller que chaque chiffre du tableau de numéros de a ou de b correspondent
+        {
+            nbr=nbr+1;//controle du nombre de chiffres coorect
+
+        }
+    }
+    if (nbr==20) // si tous les chiffres sont similaires, on met la sortie a 1
+    {
+        egalAbs=true;
+    }
+    else 
+    {
+        egalAbs=false;
+    }
+    return egalAbs;
+}
+
+
+
+

@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Déboguer apk.out (lldb)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/apk.out",
+      "args": [],               // arguments de ton programme si besoin
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "env": {}
+    }
+  ]
+}
