@@ -110,8 +110,16 @@ t_EntierLong sous(t_EntierLong a, t_EntierLong b)
     return add(a, b);
 }
 
-// fonction servant à la multiplication en faisant une suite d'addition
-/*la boucle additionne 'a' n fois avec n=limite*/
+
+/**
+ * @brief 
+ * fonction servant à la multiplication en faisant une suite d'addition
+ * la boucle additionne 'a' n fois avec n=limite
+ * 
+ * @param a 
+ * @param limite 
+ * @return int 
+ */
 int suiteadd(t_EntierLong a, int limite)
 {
     t_EntierLong res = inttolong(0);
@@ -126,12 +134,24 @@ int suiteadd(t_EntierLong a, int limite)
     return longtoint(res);
 }
 
+
+
+/**
+ * @brief 
+ * comme une multiplication posé, on va multiplier a par chaque valeur de b
+ * en y multipliant le resltat par 10^i de la boucle de b.
+ * ces valeurs seront stocké dans un vecteur d'entier long
+ * 
+ * 
+ * @param a 
+ * @param b 
+ * @return t_EntierLong 
+ */
+
 t_EntierLong mult(t_EntierLong a, t_EntierLong b)
 {
 
-    // comme une multiplication posé, on va multiplier a par chaque valeur de b
-    // en y multipliant le resltat par 10^i de la boucle de b.
-    // ces valeurs seront stocké dans un vecteur d'entier long
+
 
     vector<int> listeadd; // vecteur qui va contenir l'ensemble des additions réalisées.
 
