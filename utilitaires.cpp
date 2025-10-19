@@ -1,5 +1,6 @@
 #include "utilitaires.h"
 #include <iostream>
+
 using namespace std;
 
 
@@ -25,6 +26,22 @@ using namespace std;
     }
 
     return (Long); // on retourne notre structure   
+}
+
+int longtoint (t_EntierLong a){
+    int res = 0;
+    int puissance = 1;
+    
+    for (int i = 0; i < MAXCHIFFRES; i++)
+    {
+        res += a.chiffres[i] * puissance;
+        puissance *= 10;
+        
+    }
+    
+    return res;
+
+
 }
 
  bool Egalite (t_EntierLong a, t_EntierLong b){
